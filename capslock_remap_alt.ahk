@@ -19,7 +19,7 @@
 ;     Esc                   - R
 ;     Next, previous tab    - Tab, Q
 ;     Undo, redo            - , and .
-;
+;  
 ; To use capslock as you normally would, you can press WinKey + Capslock
 
 
@@ -38,105 +38,106 @@
 
 
 
-Persistent
-SetCapsLockState "AlwaysOff"
+#Persistent
+SetCapsLockState, AlwaysOff
+
 
 
 ; Capslock + jkli (left, down, up, right)
 
-CapsLock & h::Send "{Blind}{Left DownTemp}"
-CapsLock & h up::Send "{Blind}{Left Up}"
+Capslock & h::Send {Blind}{Left DownTemp}
+Capslock & h up::Send {Blind}{Left Up}
 
-CapsLock & j::Send "{Blind}{Down DownTemp}"
-CapsLock & j up::Send "{Blind}{Down Up}"
+Capslock & j::Send {Blind}{Down DownTemp}
+Capslock & j up::Send {Blind}{Down Up}
 
-CapsLock & k::Send "{Blind}{Up DownTemp}"
-CapsLock & k up::Send "{Blind}{Up Up}"
+Capslock & k::Send {Blind}{Up DownTemp}
+Capslock & k up::Send {Blind}{Up Up}
 
-CapsLock & l::Send "{Blind}{Right DownTemp}"
-CapsLock & l up::Send "{Blind}{Right Up}"
-
-
-; CapsLock + uohy (pgdown, pgup, home, end)
-
-CapsLock & y::SendInput "{Blind}{Home Down}"
-CapsLock & y up::SendInput "{Blind}{Home Up}"
-
-CapsLock & o::SendInput "{Blind}{End Down}"
-CapsLock & o up::SendInput "{Blind}{End Up}"
-
-CapsLock & u::SendInput "{Blind}{PgDn Down}"
-CapsLock & u up::SendInput "{Blind}{PgDn Up}"
-
-CapsLock & i::SendInput "{Blind}{PgUp Down}"
-CapsLock & i up::SendInput "{Blind}{PgUp Up}"
-
-; CapsLock + asdf (select all, cut-copy-paste)
-
-CapsLock & a::SendInput "{Blind}{Ctrl Down}{a Down}"
-CapsLock & a up::SendInput "{Blind}{Ctrl Up}{a Up}"
-
-CapsLock & s::SendInput "{Blind}{Ctrl Down}{x Down}"
-CapsLock & s up::SendInput "{Blind}{Ctrl Up}{x Up}"
-
-CapsLock & d::SendInput "{Blind}{Ctrl Down}{c Down}"
-CapsLock & d up::SendInput "{Blind}{Ctrl Up}{c Up}"
-
-CapsLock & f::SendInput "{Blind}{Ctrl Down}{v Down}"
-CapsLock & f up::SendInput "{Blind}{Ctrl Up}{v Up}"
+Capslock & l::Send {Blind}{Right DownTemp}
+Capslock & l up::Send {Blind}{Right Up}
 
 
-; CapsLock + wer (close tab or window, press esc)
+; Capslock + uohy (pgdown, pgup, home, end)
 
-CapsLock & w::SendInput "{Blind}{Ctrl down}{F4}{Ctrl up}"
-CapsLock & e::SendInput "{Blind}{Alt down}{F4}{Alt up}"
-CapsLock & r::SendInput "{Blind}{Esc Down}"
+Capslock & y::SendInput {Blind}{Home Down}
+Capslock & y up::SendInput {Blind}{Home Up}
 
+Capslock & o::SendInput {Blind}{End Down}
+Capslock & o up::SendInput {Blind}{End Up}
 
-;; CapsLock + nm (insert, backspace, del)
-;
-;CapsLock & b::SendInput "{Blind}{Insert Down}"
-;CapsLock & m::SendInput "{Blind}{Del Down}"
-;CapsLock & n::SendInput "{Blind}{BS Down}"
-;CapsLock & BS::SendInput "{Blind}{BS Down}"
-;
-;
-;; Make CapsLock & Enter equivalent to Control+Enter
-;CapsLock & Enter::SendInput "{Ctrl down}{Enter}{Ctrl up}"
-;
-;
-;; Make CapsLock & Alt Equivalent to Control+Alt
-;;!CapsLock::SendInput "{Ctrl down}{Alt Down}"
-;;!CapsLock up::SendInput "{Ctrl up}{Alt up}"
-;
-;
-;; CapsLock + TAB/q (prev/next tab)
-;;
-;CapsLock & q::SendInput ""{Ctrl Down}{Tab Down}""
-;CapsLock & q up::SendInput ""{Ctrl Up}{Tab Up}""
-;CapsLock & Tab::SendInput ""{Ctrl Down}{Shift Down}{Tab Down}""
-;CapsLock & Tab up::SendInput ""{Ctrl Up}{Shift Up}{Tab Up}""
-;
-;; CapsLock + ,/. (undo/redo)
-;
-;CapsLock & ,::SendInput ""{Ctrl Down}{z Down}""
-;CapsLock & , up::SendInput ""{Ctrl Up}{z Up}""
-;CapsLock & .::SendInput ""{Ctrl Down}{y Down}""
-;CapsLock & . up::SendInput ""{Ctrl Up}{y Up}""
-;
-;
-;; Make CapsLock+Space -> Enter
-;CapsLock & Space::SendInput "{Enter Down}"
+Capslock & u::SendInput {Blind}{PgDn Down}
+Capslock & u up::SendInput {Blind}{PgDn Up}
+
+Capslock & i::SendInput {Blind}{PgUp Down}
+Capslock & i up::SendInput {Blind}{PgUp Up}
+
+; Capslock + asdf (select all, cut-copy-paste)
+
+Capslock & a::SendInput {Ctrl Down}{a Down}
+Capslock & a up::SendInput {Ctrl Up}{a Up}
+
+Capslock & s::SendInput {Ctrl Down}{x Down}
+Capslock & s up::SendInput {Ctrl Up}{x Up}
+
+Capslock & d::SendInput {Ctrl Down}{c Down}
+Capslock & d up::SendInput {Ctrl Up}{c Up}
+
+Capslock & f::SendInput {Ctrl Down}{v Down}
+Capslock & f up::SendInput {Ctrl Up}{v Up}
 
 
+; Capslock + wer (close tab or window, press esc)
 
-;; Make Win Key + CapsLock work like Capslock
-;#CapsLock::
-;If GetKeyState("CapsLock", "T") = 1
-;    SetCapsLockState, AlwaysOff
-;Else 
-;    SetCapsLockState, AlwaysOn
-;Return
+Capslock & w::SendInput {Ctrl down}{F4}{Ctrl up}
+Capslock & e::SendInput {Alt down}{F4}{Alt up}
+Capslock & r::SendInput {Blind}{Esc Down}
+
+
+; Capslock + nm (insert, backspace, del)
+
+Capslock & b::SendInput {Blind}{Insert Down}
+Capslock & m::SendInput {Blind}{Del Down}
+Capslock & n::SendInput {Blind}{BS Down}
+Capslock & BS::SendInput {Blind}{BS Down}
+
+
+; Make Capslock & Enter equivalent to Control+Enter
+Capslock & Enter::SendInput {Ctrl down}{Enter}{Ctrl up}
+
+
+; Make Capslock & Alt Equivalent to Control+Alt
+!Capslock::SendInput {Ctrl down}{Alt Down}
+!Capslock up::SendInput {Ctrl up}{Alt up}
+
+
+; Capslock + TAB/q (prev/next tab)
+
+Capslock & q::SendInput {Ctrl Down}{Tab Down}
+Capslock & q up::SendInput {Ctrl Up}{Tab Up}
+Capslock & Tab::SendInput {Ctrl Down}{Shift Down}{Tab Down}
+Capslock & Tab up::SendInput {Ctrl Up}{Shift Up}{Tab Up}
+
+; Capslock + ,/. (undo/redo)
+
+Capslock & ,::SendInput {Ctrl Down}{z Down}
+Capslock & , up::SendInput {Ctrl Up}{z Up}
+Capslock & .::SendInput {Ctrl Down}{y Down}
+Capslock & . up::SendInput {Ctrl Up}{y Up}
+
+
+; Make Capslock+Space -> Enter
+Capslock & Space::SendInput {Enter Down}
+
+
+
+; Make Win Key + Capslock work like Capslock
+#Capslock::
+If GetKeyState("CapsLock", "T") = 1
+    SetCapsLockState, AlwaysOff
+Else 
+    SetCapsLockState, AlwaysOn
+Return
 
 
 
@@ -148,36 +149,36 @@ CapsLock & r::SendInput "{Blind}{Esc Down}"
 ; by The How-To Geek
 ; http://www.howtogeek.com 
 
-;CapsLock & LButton::
-;CoordMode, Mouse  ; Switch to screen/absolute coordinates.
-;MouseGetPos, EWD_MouseStartX, EWD_MouseStartY, EWD_MouseWin
-;WinGetPos, EWD_OriginalPosX, EWD_OriginalPosY,,, ahk_id %EWD_MouseWin%
-;WinGet, EWD_WinState, MinMax, ahk_id %EWD_MouseWin% 
-;if EWD_WinState = 0  ; Only if the window isn't maximized 
-;    SetTimer, EWD_WatchMouse, 10 ; Track the mouse as the user drags it.
-;return
-;
-;EWD_WatchMouse:
-;GetKeyState, EWD_LButtonState, LButton, P
-;if EWD_LButtonState = U  ; Button has been released, so drag is complete.
-;{
-;    SetTimer, EWD_WatchMouse, off
-;    return
-;}
-;GetKeyState, EWD_EscapeState, Escape, P
-;if EWD_EscapeState = D  ; Escape has been pressed, so drag is cancelled.
-;{
-;    SetTimer, EWD_WatchMouse, off
-;    WinMove, ahk_id %EWD_MouseWin%,, %EWD_OriginalPosX%, %EWD_OriginalPosY%
-;    return
-;}
-;; Otherwise, reposition the window to match the change in mouse coordinates
-;; caused by the user having dragged the mouse:
-;CoordMode, Mouse
-;MouseGetPos, EWD_MouseX, EWD_MouseY
-;WinGetPos, EWD_WinX, EWD_WinY,,, ahk_id %EWD_MouseWin%
-;SetWinDelay, -1   ; Makes the below move faster/smoother.
-;WinMove, ahk_id %EWD_MouseWin%,, EWD_WinX + EWD_MouseX - EWD_MouseStartX, EWD_WinY + EWD_MouseY - EWD_MouseStartY
-;EWD_MouseStartX := EWD_MouseX  ; Update for the next timer-call to this subroutine.
-;EWD_MouseStartY := EWD_MouseY
-;return
+Capslock & LButton::
+CoordMode, Mouse  ; Switch to screen/absolute coordinates.
+MouseGetPos, EWD_MouseStartX, EWD_MouseStartY, EWD_MouseWin
+WinGetPos, EWD_OriginalPosX, EWD_OriginalPosY,,, ahk_id %EWD_MouseWin%
+WinGet, EWD_WinState, MinMax, ahk_id %EWD_MouseWin% 
+if EWD_WinState = 0  ; Only if the window isn't maximized 
+    SetTimer, EWD_WatchMouse, 10 ; Track the mouse as the user drags it.
+return
+
+EWD_WatchMouse:
+GetKeyState, EWD_LButtonState, LButton, P
+if EWD_LButtonState = U  ; Button has been released, so drag is complete.
+{
+    SetTimer, EWD_WatchMouse, off
+    return
+}
+GetKeyState, EWD_EscapeState, Escape, P
+if EWD_EscapeState = D  ; Escape has been pressed, so drag is cancelled.
+{
+    SetTimer, EWD_WatchMouse, off
+    WinMove, ahk_id %EWD_MouseWin%,, %EWD_OriginalPosX%, %EWD_OriginalPosY%
+    return
+}
+; Otherwise, reposition the window to match the change in mouse coordinates
+; caused by the user having dragged the mouse:
+CoordMode, Mouse
+MouseGetPos, EWD_MouseX, EWD_MouseY
+WinGetPos, EWD_WinX, EWD_WinY,,, ahk_id %EWD_MouseWin%
+SetWinDelay, -1   ; Makes the below move faster/smoother.
+WinMove, ahk_id %EWD_MouseWin%,, EWD_WinX + EWD_MouseX - EWD_MouseStartX, EWD_WinY + EWD_MouseY - EWD_MouseStartY
+EWD_MouseStartX := EWD_MouseX  ; Update for the next timer-call to this subroutine.
+EWD_MouseStartY := EWD_MouseY
+return
